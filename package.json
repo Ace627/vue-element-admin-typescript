@@ -1,0 +1,43 @@
+{
+  "name": "vue-element-admin-typescript",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "author": "当时只道是寻常",
+  "homepage": "https://github.com/Ace627/vue-element-admin-typescript.git",
+  "packageManager": "pnpm@9.9.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "element-plus": "^2.8.8",
+    "lodash-es": "4.17.21",
+    "pinia": "2.2.6",
+    "vue": "^3.5.12",
+    "vue-router": "4.4.5"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "4.17.12",
+    "@types/node": "22.9.0",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "sass": "1.81.0",
+    "typescript": "~5.6.2",
+    "unocss": "0.64.1",
+    "unplugin-auto-import": "^0.18.4",
+    "unplugin-element-plus": "^0.8.0",
+    "unplugin-vue-components": "^0.27.4",
+    "vite": "^5.4.10",
+    "vue-tsc": "^2.1.8"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/Ace627/vue-element-admin-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ace627/vue-element-admin-typescript.git/issues",
+    "email": "1207588603@qq.com"
+  }
+}

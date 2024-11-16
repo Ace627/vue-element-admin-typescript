@@ -1,0 +1,16 @@
+:root {
+  --ap-navbar-height: 50px;
+  --ap-sidebar-menu-height: 40px;
+  --ap-sidebar-menu-text-color: var(--el-color-white);
+  --ap-sidebar-menu-bg-color: var(--el-color-primary);
+  --ap-sidebar-menu-active-text-color: var(--el-color-primary);
+  --ap-sidebar-menu-active-bg-color: var(--el-color-white);
+  --ap-sidebar-menu-hover-bg-color: color-mix(in srgb, var(--ap-sidebar-menu-bg-color), var(--el-color-white) 10%);
+
+  // --ap-aside-menu-height: 40px; // 左侧菜单高度
+  // --ap-aside-menu-text-color: #ffffff;
+  // --ap-aside-menu-bg-color: #262935;
+  // --ap-aside-menu-font-weight: 500; // 左侧菜单菜单字体加粗
+  // --ap-aside-menu-active-text-color: var(--el-color-primary);
+  // --ap-aside-menu-active-bg-color: var(--el-color-primary-light-8);
+}

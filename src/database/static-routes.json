@@ -1,0 +1,53 @@
+[
+  {
+    "id": "0a5c878f-fa6c-448d-8172-ce08de3c7515",
+    "parentId": "0",
+    "path": "/system",
+    "component": null,
+    "type": "M",
+    "title": "系统管理",
+    "icon": "Setting",
+    "visible": 1
+  },
+  {
+    "id": "34065990-f8f4-4690-b23e-7a7c2b88e91c",
+    "parentId": "0a5c878f-fa6c-448d-8172-ce08de3c7515",
+    "path": "/system/user",
+    "component": "system/user/index",
+    "type": "C",
+    "title": "用户管理",
+    "icon": "User",
+    "visible": 1,
+    "full": 0
+  },
+  {
+    "id": "b3410ec8-1aca-44b0-85f3-25a1121d00c5",
+    "parentId": "0a5c878f-fa6c-448d-8172-ce08de3c7515",
+    "path": "/system/role",
+    "component": "system/role/index",
+    "type": "C",
+    "title": "角色管理",
+    "icon": "Role",
+    "visible": 1
+  },
+  {
+    "id": "951d14b9-4a37-4ae7-8a6f-314b794a4f79",
+    "parentId": "0a5c878f-fa6c-448d-8172-ce08de3c7515",
+    "path": "/system/menu",
+    "component": "system/menu/index",
+    "type": "C",
+    "title": "菜单管理",
+    "icon": "List",
+    "visible": 1
+  },
+  {
+    "id": "336a7eed-4e8e-458b-a72a-9bbfafedf938",
+    "parentId": "0",
+    "path": "https://www.uuid.online",
+    "component": null,
+    "type": "C",
+    "title": "UUID在线生成",
+    "icon": "Tool",
+    "visible": 1
+  }
+]

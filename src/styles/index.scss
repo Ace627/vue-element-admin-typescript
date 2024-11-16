@@ -1,0 +1,8 @@
+@use './variables.scss';
+@use './transition.scss';
+@use './layout/layout-classical.scss'; // 传统模式的布局
+@import './iconfont/iconfont.css';
+
+body {
+  background-color: #f5f6f7;
+}
