@@ -1,6 +1,6 @@
 import { upperFirst } from 'lodash-es'
-import { LAYOUT } from './router.constant'
-import { RouteMeta, RouteRecordRaw } from 'vue-router'
+import { LAYOUT, NAME_WHITE_LIST, PATH_WHITE_LIST } from './router.constant'
+import type { RouteMeta, RouteRecordRaw, RouteLocationNormalized } from 'vue-router'
 
 /**
  * 递归函数用于生成路由配置，登录的时候也需要调用一次
@@ -67,6 +67,13 @@ export function generateRouteMeta(record: Record<string, any>): RouteMeta {
   meta.affix = record.affix === 1
   meta.full = record.full === 1
   meta.hidden = record.visible === 0
-  console.log('meta: ', meta)
   return meta
+}
+
+/**
+ * 判断路由是否在白名单
+ */
+export function isWhiteList(to: RouteLocationNormalized): boolean {
+  // path 和 name 任意一个匹配上即可
+  return PATH_WHITE_LIST.includes(to.path) || NAME_WHITE_LIST.includes(to.name as string)
 }
