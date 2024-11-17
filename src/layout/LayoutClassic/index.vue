@@ -1,5 +1,8 @@
 <template>
   <div class="layout-classic" :class="classes">
+    <!-- mobile 端侧边栏遮罩层 -->
+    <div v-if="appStore.isMobile && !appStore.isCollapse" class="drawer-bg" @click="handleClickOutside"></div>
+
     <div class="sidebar-container">
       <AppLogo v-if="settingStore.showLogo" />
       <el-menu :collapse="appStore.isCollapse" :collapseTransition="false" uniqueOpened :defaultActive>
@@ -29,7 +32,11 @@ const settingStore = useSettingStore()
 
 const defaultActive = computed(() => route.meta.activeMenu ?? route.path)
 const menuList = computed(() => useStore.routeList)
-const classes = computed(() => [{ 'has-logo': settingStore.showLogo }, { 'open-sidebar': !appStore.isCollapse }, { 'hide-sidebar': appStore.isCollapse }])
+const classes = computed(() => [appStore.device, { 'has-logo': settingStore.showLogo }, { 'open-sidebar': !appStore.isCollapse }, { 'hide-sidebar': appStore.isCollapse }])
+
+function handleClickOutside() {
+  appStore.closeSidebar()
+}
 </script>
 
 <style lang="scss" scoped>
@@ -37,6 +44,30 @@ const classes = computed(() => [{ 'has-logo': settingStore.showLogo }, { 'open-s
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+/* 左侧边栏抽屉背景遮罩 */
+.drawer-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: var(--el-overlay-color-lighter);
+  overflow: hidden;
+}
+.sidebar-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1001;
+  width: var(--ap-sidebar-width);
+  height: 100%;
+  color: var(--ap-sidebar-text-color);
+  background-color: var(--ap-sidebar-bg-color);
+  transition: width var(--el-transition-duration);
+  overflow: hidden;
 }
 
 .fixed-header {
@@ -49,19 +80,6 @@ const classes = computed(() => [{ 'has-logo': settingStore.showLogo }, { 'open-s
   height: 100vh;
   padding-top: var(--ap-header-height);
   overflow-y: auto;
-}
-
-.sidebar-container {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 555;
-  width: var(--ap-sidebar-width);
-  height: 100%;
-  color: var(--ap-sidebar-text-color);
-  background-color: var(--ap-sidebar-bg-color);
-  transition: width var(--el-transition-duration);
-  overflow: hidden;
 }
 
 .el-menu {
@@ -97,6 +115,7 @@ const classes = computed(() => [{ 'has-logo': settingStore.showLogo }, { 'open-s
   transition: margin-left var(--el-transition-duration);
 }
 
+/* 桌面模式 侧栏折叠 */
 .hide-sidebar {
   .sidebar-container {
     width: var(--ap-sidebar-width--hide);
@@ -106,6 +125,24 @@ const classes = computed(() => [{ 'has-logo': settingStore.showLogo }, { 'open-s
   }
   .fixed-header {
     width: calc(100% - var(--ap-sidebar-width--hide));
+  }
+}
+
+/* 移动端 侧边栏展开 */
+.mobile {
+  .fixed-header {
+    width: 100%;
+  }
+  .main-container {
+    margin-left: 0;
+  }
+}
+
+/* 移动端 侧边栏折叠 */
+.mobile.hide-sidebar {
+  .sidebar-container {
+    width: 0;
+    pointer-events: none;
   }
 }
 </style>

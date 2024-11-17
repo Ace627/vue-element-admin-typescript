@@ -1,8 +1,6 @@
 export default defineStore('app', () => {
   /** 是否折叠菜单 */
   const isCollapse = ref<boolean>(false)
-  /** 菜单宽度 */
-  const menuWidth = computed(() => (isCollapse.value ? '64px' : '220px'))
   /** 设备类型 */
   const device = ref<DeviceType>('desktop')
   const isMobile = computed(() => device.value === 'mobile')
@@ -15,8 +13,8 @@ export default defineStore('app', () => {
 
   /** 关闭侧边栏（主要用于移动端状态下） */
   function closeSidebar(): void {
-    isCollapse.value = false
+    isCollapse.value = true
   }
 
-  return { isCollapse, isMobile, isDesktop, device, menuWidth, toggleSidebar, closeSidebar }
+  return { isCollapse, isMobile, isDesktop, device, toggleSidebar, closeSidebar }
 })

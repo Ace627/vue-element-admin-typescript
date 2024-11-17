@@ -1,6 +1,5 @@
 <template>
-  <LayoutMobile v-if="appStore.isMobile" />
-  <LayoutClassic v-else-if="appStore.isDesktop" />
+  <LayoutClassic />
 </template>
 
 <script setup lang="ts">
