@@ -7,8 +7,11 @@
       <!-- 全屏控件 -->
       <Screenfull class="navbar-item" :size="24" />
 
-      <UserDropDown class="navbar-item" />
+      <UserDropDown class="navbar-item" @updatePassword="updatePasswordRef?.handleOpen" />
     </div>
+
+    <!-- 修改密码对话框 -->
+    <UpdatePassword ref="updatePasswordRef" />
   </div>
 </template>
 
@@ -16,8 +19,11 @@
 defineOptions({ name: 'Navbar' })
 import Hamburger from './Hamburger.vue'
 import UserDropDown from './UserDropDown.vue'
+import UpdatePassword from './UpdatePassword.vue'
 
 const appStore = useAppStore()
+/** 修改密码对话框的实例 */
+const updatePasswordRef = ref<InstanceType<typeof UpdatePassword>>()
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@
     </div>
 
     <template #dropdown>
-      <el-dropdown-item @click="handleLogout">
+      <el-dropdown-item @click="emits('updatePassword')">
         <IconFont name="Lock" />
         <span>修改密码</span>
       </el-dropdown-item>
@@ -20,6 +20,8 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'UserDropDown' })
+
+const emits = defineEmits(['updatePassword'])
 
 const router = useRouter()
 const appStore = useAppStore()
