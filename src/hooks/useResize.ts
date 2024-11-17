@@ -1,11 +1,9 @@
-import router from '@/router'
-
 /** 参考 Bootstrap 的响应式设计将最大移动端宽度设置为 992 */
 const MAX_MOBILE_WIDTH = 992
 
 /** 根据浏览器宽度变化，变换 Layout 布局 */
 export default () => {
-  const route = router.currentRoute.value
+  const route = useRoute()
   const appStore = useAppStore()
 
   /** 用于判断当前设备是否为移动端 */
@@ -21,7 +19,7 @@ export default () => {
       appStore.device = isMobile ? 'mobile' : 'desktop'
 
       if (isMobile) {
-        appStore.closeSidebar()
+        appStore.closeSidebar(true)
       } else {
         // 非移动模式切换 如果未展开 则自动展开
         if (appStore.isCollapse) appStore.toggleSidebar()
@@ -34,7 +32,7 @@ export default () => {
     () => route.name,
     () => {
       if (appStore.isMobile && !appStore.isCollapse) {
-        appStore.closeSidebar()
+        appStore.closeSidebar(false)
       }
     }
   )
@@ -46,7 +44,7 @@ export default () => {
   onMounted(() => {
     if (_isMobile()) {
       appStore.device = 'mobile'
-      appStore.closeSidebar()
+      appStore.closeSidebar(true)
     }
   })
 

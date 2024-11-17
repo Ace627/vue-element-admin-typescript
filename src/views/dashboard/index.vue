@@ -1,5 +1,8 @@
 <template>
-  <div class="app-content">首页</div>
+  <div class="app-content">
+    首页
+    <div v-for="(item, index) in 99" class="bg-pink mb-16px py-10px b-rd-10px" :key="index">{{ item }}</div>
+  </div>
 </template>
 
 <script setup lang="ts">

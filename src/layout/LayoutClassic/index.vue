@@ -10,7 +10,7 @@
       </el-menu>
     </div>
 
-    <div class="main-container">
+    <div class="main-container clearFix">
       <div class="fixed-header">
         <Navbar />
       </div>
@@ -32,10 +32,17 @@ const settingStore = useSettingStore()
 
 const defaultActive = computed(() => route.meta.activeMenu ?? route.path)
 const menuList = computed(() => useStore.routeList)
-const classes = computed(() => [appStore.device, { 'has-logo': settingStore.showLogo }, { 'open-sidebar': !appStore.isCollapse }, { 'hide-sidebar': appStore.isCollapse }])
+/** 用来添加到根组件的动态类的集合 */
+const classes = computed(() => [
+  appStore.device,
+  { 'has-logo': settingStore.showLogo },
+  { 'open-sidebar': !appStore.isCollapse },
+  { 'hide-sidebar': appStore.isCollapse },
+  { withoutAnimation: appStore.withoutAnimation },
+])
 
 function handleClickOutside() {
-  appStore.closeSidebar()
+  appStore.closeSidebar(true)
 }
 </script>
 
@@ -44,6 +51,12 @@ function handleClickOutside() {
   position: relative;
   width: 100%;
   height: 100%;
+
+  /* 移除侧栏和主容器的过渡效果 */
+  &.withoutAnimation .sidebar-container,
+  &.withoutAnimation .main-container {
+    transition: none;
+  }
 }
 
 /* 左侧边栏抽屉背景遮罩 */
@@ -70,18 +83,6 @@ function handleClickOutside() {
   overflow: hidden;
 }
 
-.fixed-header {
-  position: fixed;
-  top: 0;
-  width: calc(100% - var(--ap-sidebar-width));
-  transition: width var(--el-transition-duration);
-}
-.fixed-header + .app-main {
-  height: 100vh;
-  padding-top: var(--ap-header-height);
-  overflow-y: auto;
-}
-
 .el-menu {
   --el-menu-item-height: var(--ap-sidebar-item-height);
   --el-menu-sub-item-height: var(--ap-sidebar-item-height);
@@ -101,7 +102,6 @@ function handleClickOutside() {
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: skyblue;
     .menu-icon {
       margin-right: 0;
     }
@@ -113,6 +113,22 @@ function handleClickOutside() {
   height: 100%;
   margin-left: var(--ap-sidebar-width);
   transition: margin-left var(--el-transition-duration);
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: calc(100% - var(--ap-sidebar-width));
+  transition: width var(--el-transition-duration);
+}
+.fixed-header + .app-main {
+  height: calc(100vh - var(--ap-header-height));
+  margin-top: var(--ap-header-height);
+}
+.app-main {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* 桌面模式 侧栏折叠 */
