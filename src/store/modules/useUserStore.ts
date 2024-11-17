@@ -1,8 +1,9 @@
-import { removeAccessToken, setAccessToken } from '@/utils/cache'
 import type { RouteRecordRaw } from 'vue-router'
 import staticRoutes from '@/database/static-routes.json'
 import { LoginService } from '@/api/system/login.service'
+import { removeAccessToken, setAccessToken } from '@/utils/cache'
 import { STATIC_ROUTE_LIST } from '@/router/modules/static.route'
+import defaultAvatar from '@/assets/images/default/default-avatar.gif'
 import { filterVisibleRoutes, generateFlattenRoutes, generateRoutes } from '@/router/router.helper'
 
 export default defineStore('user', () => {
@@ -16,6 +17,8 @@ export default defineStore('user', () => {
   const routeList = shallowRef<RouteRecordRaw[]>([])
   /** 一级扁平化路由表 用于动态路由添加 */
   const flattenRouteList = shallowRef<RouteRecordRaw[]>([])
+  /** 用户头像  类似于 Vuex 的 Getters 操作 */
+  const avatar = computed(() => userInfo.value.avatar ?? defaultAvatar)
 
   /** 登录 */
   async function login(loginForm: LoginFormDto) {
@@ -38,5 +41,5 @@ export default defineStore('user', () => {
     removeAccessToken()
   }
 
-  return { userInfo, roles, permissions, routeList, flattenRouteList, login, getInfo, logout }
+  return { userInfo, roles, permissions, routeList, flattenRouteList, avatar, login, getInfo, logout }
 })
