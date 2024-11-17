@@ -49,5 +49,15 @@
     "title": "UUID在线生成",
     "icon": "Tool",
     "visible": 1
+  },
+  {
+    "id": "cfc41141-6594-4d07-80c0-8bc5a0bb212c",
+    "parentId": "0",
+    "path": "/about",
+    "component": "about/index",
+    "type": "C",
+    "title": "关于",
+    "icon": "Tool",
+    "visible": 1
   }
 ]

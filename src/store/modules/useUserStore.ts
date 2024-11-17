@@ -6,6 +6,8 @@ import { STATIC_ROUTE_LIST } from '@/router/modules/static.route'
 import { filterVisibleRoutes, generateFlattenRoutes, generateRoutes } from '@/router/router.helper'
 
 export default defineStore('user', () => {
+  /** 当前用户信息 */
+  const userInfo = ref({} as Record<string, any>)
   /** 用户角色编码表 */
   const roles = ref<string[]>([])
   /** 用户权限编码表 */
@@ -30,5 +32,5 @@ export default defineStore('user', () => {
     flattenRouteList.value = generateFlattenRoutes(staticRoutes)
   }
 
-  return { roles, permissions, routeList, flattenRouteList, login, getInfo }
+  return { userInfo, roles, permissions, routeList, flattenRouteList, login, getInfo }
 })

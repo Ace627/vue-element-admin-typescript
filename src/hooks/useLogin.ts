@@ -12,7 +12,7 @@ export default () => {
   /** 登录加载状态 */
   const loading = ref<boolean>(false)
   /** 登录表单数据 */
-  const loginForm = ref({} as LoginFormDto)
+  const loginForm = ref({ username: 'admin', password: '123456', captcha: '18' } as LoginFormDto)
   /** 登录表单校验规则 */
   const loginRules: FormRules<LoginFormDto> = {
     username: [{ required: true, message: '账号不可为空', trigger: 'blur' }],

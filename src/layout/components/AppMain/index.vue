@@ -15,7 +15,7 @@ defineOptions({ name: 'AppMain' })
 const settingStore = useSettingStore()
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .app-main {
   position: relative;
   width: 100%;
