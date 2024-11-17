@@ -1,6 +1,8 @@
 import axios, { HttpStatusCode } from 'axios'
 import { getAccessToken } from '@/utils/cache'
 
+const nprogress = useNProgress({ show: import.meta.env.VITE_REQUEST_NPROGRESS === 'true' })
+
 export const request = axios.create({
   // baseURL 将自动加在 url 前面，除非 url 是一个绝对 URL
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -13,6 +15,7 @@ export const request = axios.create({
 // 请求拦截器
 request.interceptors.request.use(
   (config) => {
+    nprogress.start()
     const timestamp = Date.now()
     const accessToken = getAccessToken()
     // 给 get 请求加上时间戳参数，避免从缓存中拿数据
@@ -22,6 +25,7 @@ request.interceptors.request.use(
     return config
   },
   (error) => {
+    nprogress.done()
     return Promise.reject(error)
   }
 )
@@ -29,6 +33,7 @@ request.interceptors.request.use(
 // 响应拦截器
 request.interceptors.response.use(
   (response) => {
+    nprogress.done()
     // 未设置状态码则默认成功状态
     const code = response.data.code || HttpStatusCode.Ok
     // 获取错误信息
@@ -46,6 +51,7 @@ request.interceptors.response.use(
     }
   },
   (error) => {
+    nprogress.done()
     // 参考：https://gitee.com/y_project/RuoYi-Vue/blob/master/ruoyi-ui/src/utils/request.js
     let { message } = error
     if (message == 'Network Error') {

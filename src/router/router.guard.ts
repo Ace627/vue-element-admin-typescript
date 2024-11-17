@@ -4,9 +4,13 @@ import { isWhiteList } from './router.helper'
 import { LOGIN_PAGE_URL, HOME_PAGE_URL } from './router.constant'
 import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 
+const nprogress = useNProgress({ show: import.meta.env.VITE_ROUTER_NPROGRESS === 'true' })
+
 export async function beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) {
   const userStore = useUserStore()
   const accessToken = getAccessToken()
+
+  nprogress.start()
 
   // 如果没有 Token，但在免登录的白名单中，则直接进入；否则将被重定向到登录页面
   if (!accessToken) return isWhiteList(to) ? next() : next({ path: LOGIN_PAGE_URL, query: { redirect: to.fullPath } })
@@ -31,5 +35,5 @@ export async function beforeEach(to: RouteLocationNormalized, from: RouteLocatio
 }
 
 export function afterEach(to: RouteLocationNormalized) {
-  // next()
+  nprogress.done()
 }
