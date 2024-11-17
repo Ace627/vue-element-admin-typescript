@@ -1,4 +1,4 @@
-import { setAccessToken } from '@/utils/cache'
+import { removeAccessToken, setAccessToken } from '@/utils/cache'
 import type { RouteRecordRaw } from 'vue-router'
 import staticRoutes from '@/database/static-routes.json'
 import { LoginService } from '@/api/system/login.service'
@@ -32,5 +32,11 @@ export default defineStore('user', () => {
     flattenRouteList.value = generateFlattenRoutes(staticRoutes)
   }
 
-  return { userInfo, roles, permissions, routeList, flattenRouteList, login, getInfo }
+  /** 退出登录 */
+  async function logout() {
+    await LoginService.logout() // 必须在前 不然会导致 Redis 无法清空对应用户的缓存 Token
+    removeAccessToken()
+  }
+
+  return { userInfo, roles, permissions, routeList, flattenRouteList, login, getInfo, logout }
 })

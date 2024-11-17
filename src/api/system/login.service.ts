@@ -18,4 +18,10 @@ export class LoginService {
     // return { code: 200, message: '请求成功', result: routes, timestamp: Date.now() }
     return routes
   }
+
+  /** 退出 */
+  static logout() {
+    return Promise.resolve('退出成功')
+    // return request.post('/logout')
+  }
 }

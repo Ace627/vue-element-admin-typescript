@@ -25,7 +25,6 @@ export default () => {
     try {
       if (!formInstance) return
       await formInstance.validate()
-      console.log(loginForm.value)
       await userStore.login(loginForm.value)
       await router.replace(redirect)
     } catch (error: any) {

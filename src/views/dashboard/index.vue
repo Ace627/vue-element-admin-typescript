@@ -1,8 +1,6 @@
 <template>
   <div class="app-content">
-    <AutoWrapList>
-      <div class="item text-64px flex-center bg-[--el-color-primary] c-white" v-for="(item, index) in 99" :key="index">{{ item }}</div>
-    </AutoWrapList>
+    <el-button plain type="danger" @click="hanleLogout">退出登录</el-button>
   </div>
 </template>
 
@@ -10,6 +8,17 @@
 defineOptions({ name: 'Dashboard' })
 
 const appStore = useAppStore()
+const userStore = useUserStore()
+
+async function hanleLogout() {
+  try {
+    await useModal().confirm(`确定注销并退出系统吗？`)
+    await userStore.logout()
+    window.location.reload()
+  } catch (error) {
+    if (error === 'cancel') return useModal().msg('操作取消')
+  }
+}
 </script>
 
 <style lang="scss" scoped>
