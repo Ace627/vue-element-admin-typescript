@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4611674 */
-  src: url('iconfont.woff2?t=1731744660451') format('woff2');
+  src: url('iconfont.woff2?t=1731839068208') format('woff2');
 }
 
 .iconfont {
@@ -9,6 +9,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-FullScreen:before {
+  content: "\e7ec";
+}
+
+.icon-ExitFullScreen:before {
+  content: "\e7ed";
 }
 
 .icon-Swap:before {

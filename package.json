@@ -19,6 +19,7 @@
     "lodash-es": "4.17.21",
     "nprogress": "0.2.0",
     "pinia": "2.2.6",
+    "screenfull": "6.0.2",
     "vue": "^3.5.12",
     "vue-router": "4.4.5"
   },

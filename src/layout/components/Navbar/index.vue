@@ -3,7 +3,10 @@
     <!-- 侧栏折叠控制 -->
     <Hamburger class="navbar-item" @toggleClick="appStore.toggleSidebar" />
 
-    <div class="right h-full ml-auto">
+    <div class="right h-full ml-auto flex-center">
+      <!-- 全屏控件 -->
+      <Screenfull class="navbar-item" :size="24" />
+
       <UserDropDown class="navbar-item" />
     </div>
   </div>

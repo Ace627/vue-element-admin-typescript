@@ -6,6 +6,11 @@
 
     <template #dropdown>
       <el-dropdown-item @click="handleLogout">
+        <IconFont name="Lock" />
+        <span>修改密码</span>
+      </el-dropdown-item>
+
+      <el-dropdown-item @click="handleLogout">
         <IconFont name="SwitchButton" />
         <span>退出登录</span>
       </el-dropdown-item>

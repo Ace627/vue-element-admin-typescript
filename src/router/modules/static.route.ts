@@ -26,6 +26,13 @@ export const STATIC_ROUTE_LIST: Array<RouteRecordRaw> = [
     meta: { title: '登录', full: true, hidden: true },
   },
 
+  // 重定向页
+  {
+    path: '/redirect',
+    component: () => import('@/views/redirect/index.vue'),
+    meta: { title: '重定向', full: false, hidden: true },
+  },
+
   // The not found page must be placed last
   {
     path: '/404',
