@@ -4,6 +4,17 @@
 
   --ap-navbar-height: 50px;
   --ap-navbar-bg-color: #ffffff;
+  --ap-header-height: calc(var(--ap-navbar-height));
+
+  --ap-logo-text-color: inherit;
+  --ap-logo-bg-color: inherit;
+
+  --ap-sidebar-width: 220px;
+  --ap-sidebar-width--hide: 64px;
+  --ap-sidebar-item-height: 40px;
+  --ap-sidebar-item-hover-bg-color: color-mix(in srgb, var(--ap-sidebar-bg-color), var(--el-color-white) 10%);
+  --ap-sidebar-text-color: #fff;
+  --ap-sidebar-bg-color: #262935;
 
   // --ap-sidebar-menu-height: 40px;
   // --ap-sidebar-menu-text-color: var(--el-color-white);

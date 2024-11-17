@@ -12,9 +12,9 @@
       </el-form-item>
     </el-form>
 
-    <div class="dialog-footer mt-32px flex-center">
-      <el-button type="info" @click="handleClose">取消</el-button>
-      <el-button type="primary" @click="handleSubmit">提交</el-button>
+    <div class="dialog-footer mt-24px flex-center">
+      <el-button class="w-108px" type="info" @click="handleClose">取消</el-button>
+      <el-button class="w-108px" type="primary" @click="handleSubmit">提交</el-button>
     </div>
   </el-dialog>
 </template>

@@ -30,6 +30,8 @@ const isShowTitle = computed(() => !appStore.isCollapse)
 <style lang="scss" scoped>
 .app-logo {
   height: var(--ap-navbar-height);
+  color: var(--ap-logo-text-color);
+  background-color: var(--ap-logo-bg-color);
   overflow: hidden;
 }
 </style>
