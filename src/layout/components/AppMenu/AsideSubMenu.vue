@@ -1,5 +1,5 @@
 <template>
-  <!-- 有下级，用el-sub-menu，无下级用el-menu-item -->
+  <!-- 有下级，用 el-sub-menu，无下级用 el-menu-item -->
   <template v-for="item in menuList" :key="item.path">
     <!-- 非叶子节点 -->
     <el-sub-menu v-if="item.children?.length" :index="item.path">
@@ -22,8 +22,8 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'AsideSubMenu' })
-import { isExternal } from '@/utils/validate'
 import { RouteRecordRaw } from 'vue-router'
+import { isExternal } from '@/utils/validate'
 
 defineProps({
   menuList: { type: Array as PropType<Array<RouteRecordRaw>>, required: true },
@@ -31,35 +31,34 @@ defineProps({
 
 const router = useRouter()
 
-function handleMenuRouter(record: any) {
-  if (isExternal(record.path)) {
-    return window.open(record.path, '_blank')
-  } else {
-    router.push(record.path)
-  }
+function handleMenuRouter(record: RouteRecordRaw) {
+  isExternal(record.path) ? window.open(record.path, '_blank') : router.push(record.path)
 }
 </script>
 
 <style lang="scss" scoped>
+.menu-icon {
+  font-size: var(--ap-sidebar-icon-size);
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+/* 再次配置前景背景色 是为了侧栏的折叠菜单样式不生效的问题 */
+.el-menu-item {
+  height: var(--ap-sidebar-item-height);
+  color: var(--ap-sidebar-text-color);
+  background-color: var(--ap-sidebar-bg-color);
+  &:hover {
+    background-color: var(--ap-sidebar-item-hover-bg-color);
+  }
+}
+
+/* 重写激活菜单项的样式 */
 .el-menu-item.is-active {
-  background-color: var(--ap-sidebar-menu-active-bg-color) !important;
+  color: var(--ap-sidebar-active-text-color);
+  background-color: var(--ap-sidebar-active-bg-color);
 }
-
-.el-menu-item,
-:deep(.el-sub-menu__title) {
-  user-select: none;
-  height: var(--ap-sidebar-menu-height) !important;
-  line-height: var(--ap-sidebar-menu-height) !important;
-}
-
-.el-menu-item:hover,
-:deep(.el-sub-menu__title:hover) {
-  background-color: var(--ap-sidebar-menu-hover-bg-color);
-}
-
-// .menu-icon {
+// .el-menu--collapse .el-sub-menu.is-active {
+//   background-color: var(--ap-sidebar-active-bg-color);
 // }
-.menu-title {
-  margin-left: 4px;
-}
 </style>
