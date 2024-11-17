@@ -12,6 +12,10 @@ export async function beforeEach(to: RouteLocationNormalized, from: RouteLocatio
 
   nprogress.start()
 
+  // 动态页面标题
+  const dynamicTitle = (to.meta.title ? `${to.meta.title} - ` : '') + import.meta.env.VITE_APP_TITLE
+  document.title = dynamicTitle
+
   // 如果没有 Token，但在免登录的白名单中，则直接进入；否则将被重定向到登录页面
   if (!accessToken) return isWhiteList(to) ? next() : next({ path: LOGIN_PAGE_URL, query: { redirect: to.fullPath } })
 
