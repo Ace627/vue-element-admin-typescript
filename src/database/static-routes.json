@@ -40,9 +40,40 @@
     "icon": "List",
     "visible": 1
   },
+
+  {
+    "id": "9363b9ad-7d34-446c-864b-e746bd67c45e",
+    "parentId": "0",
+    "path": "/link",
+    "component": null,
+    "type": "M",
+    "title": "外部链接",
+    "icon": "Tool",
+    "visible": 1
+  },
+  {
+    "id": "07f72ba0-9b4e-48b1-bce1-838220b4a325",
+    "parentId": "9363b9ad-7d34-446c-864b-e746bd67c45e",
+    "path": "https://www.youxiaohou.com",
+    "component": null,
+    "type": "C",
+    "title": "油小猴",
+    "icon": "Tool",
+    "visible": 1
+  },
+  {
+    "id": "258cbb7f-ad05-4c76-b44c-f2813eb2b787",
+    "parentId": "9363b9ad-7d34-446c-864b-e746bd67c45e",
+    "path": "https://chatgpt.com",
+    "component": null,
+    "type": "C",
+    "title": "ChatGPT",
+    "icon": "Tool",
+    "visible": 1
+  },
   {
     "id": "336a7eed-4e8e-458b-a72a-9bbfafedf938",
-    "parentId": "0",
+    "parentId": "9363b9ad-7d34-446c-864b-e746bd67c45e",
     "path": "https://www.uuid.online",
     "component": null,
     "type": "C",
@@ -50,6 +81,17 @@
     "icon": "Tool",
     "visible": 1
   },
+  {
+    "id": "2518ecd3-9612-4eb3-8fe8-964954b42475",
+    "parentId": "9363b9ad-7d34-446c-864b-e746bd67c45e",
+    "path": "https://www.iconfont.cn",
+    "component": null,
+    "type": "C",
+    "title": "阿里字体图标",
+    "icon": "Tool",
+    "visible": 1
+  },
+
   {
     "id": "cfc41141-6594-4d07-80c0-8bc5a0bb212c",
     "parentId": "0",

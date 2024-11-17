@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" title="修改密码" width="500px" :close-on-click-modal="false" :close-on-press-escape="false">
+  <el-dialog v-model="visible" title="修改密码" :width draggable :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model :rules label-width="80px" ref="formRef">
       <el-form-item label="旧密码" prop="oldPassword">
         <el-input type="password" v-model.trim="model.oldPassword" show-password placeholder="请输入旧密码"></el-input>
@@ -24,10 +24,13 @@ defineOptions({ name: 'UpdatePassword' })
 import { UserServie } from '@/api/system/user.service'
 import type { FormInstance, FormRules } from 'element-plus'
 
+const appStore = useAppStore()
 const userStore = useUserStore()
 
 /** 对话框是否可见 */
 const visible = ref<boolean>(false)
+/** 对话框宽度 */
+const width = computed(() => (appStore.isMobile ? '96%' : '500px'))
 /** 表单实例 */
 const formRef = ref<FormInstance>()
 /** 表单的数据 */

@@ -15,7 +15,6 @@
 defineOptions({ name: 'AppMain' })
 
 const settingStore = useSettingStore()
-console.log('settingStore.transitionName: ', settingStore.transitionName)
 </script>
 
 <style scoped></style>

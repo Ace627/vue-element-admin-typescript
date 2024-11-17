@@ -2,12 +2,12 @@
   <!-- 有下级，用 el-sub-menu，无下级用 el-menu-item -->
   <template v-for="item in menuList" :key="item.path">
     <!-- 非叶子节点 -->
-    <el-sub-menu v-if="item.children?.length" :index="item.path">
+    <el-sub-menu v-if="item.children?.length || item.meta?.alwaysShow" :index="item.path">
       <template #title>
         <IconFont class="menu-icon" :name="item.meta?.icon ?? 'Flag'" />
         <span class="menu-title">{{ item.meta?.title }}</span>
       </template>
-      <AsideSubMenu :menuList="item.children" />
+      <AsideSubMenu v-if="item.children?.length" :menuList="item.children" />
     </el-sub-menu>
 
     <!-- 叶子节点[功能节点] -->

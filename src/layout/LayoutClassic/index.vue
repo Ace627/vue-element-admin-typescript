@@ -64,7 +64,7 @@ function handleClickOutside() {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 999;
+  z-index: 9;
   width: 100%;
   height: 100%;
   background-color: var(--el-overlay-color-lighter);
@@ -74,7 +74,7 @@ function handleClickOutside() {
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 1001;
+  z-index: 10;
   width: var(--ap-sidebar-width);
   height: 100%;
   color: var(--ap-sidebar-text-color);
@@ -117,7 +117,7 @@ function handleClickOutside() {
 .fixed-header {
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 8;
   width: calc(100% - var(--ap-sidebar-width));
   transition: width var(--el-transition-duration);
 }
