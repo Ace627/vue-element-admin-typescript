@@ -6,20 +6,19 @@ export const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
   // timeout 指定请求超时的毫秒数(0 表示无超时时间)，如果请求花费了超过 timeout 的时间，请求将被中断
   timeout: parseInt(import.meta.env.VITE_REQUEST_TIMEOUT) * 1000,
+  // 初始化一下 query 请求对象 方便写入全局自定义参数
+  params: {},
 })
 
 // 请求拦截器
 request.interceptors.request.use(
   (config) => {
+    const timestamp = Date.now()
+    const accessToken = getAccessToken()
     // 给 get 请求加上时间戳参数，避免从缓存中拿数据
-    if (config.method?.toUpperCase() === 'GET') {
-      config.params = Reflect.set(config.params ?? {}, 't', Date.now())
-    }
+    if (config.method?.toUpperCase() === 'GET') Reflect.set(config.params, 'timestamp', timestamp)
     // 让每个请求携带自定义 token 请根据实际情况自行修改
-    const token = getAccessToken()
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`
-    }
+    if (accessToken) Reflect.set(config.headers, 'Authorization', `Bearer ${accessToken}`)
     return config
   },
   (error) => {

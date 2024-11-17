@@ -3,6 +3,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import defaultCaptcha from '@/assets/images/default/default-captcha.png'
 
 export default () => {
+  const userStore = useUserStore()
   const route = router.currentRoute.value
   /** 计算需要跳转的路径 */
   const redirect = (route.query['redirect'] as string) ?? '/'
@@ -19,23 +20,21 @@ export default () => {
     captcha: [{ required: true, message: '验证码不可为空', trigger: 'blur' }],
   }
 
-  /**
-   * 获取登录验证码
-   */
-  async function getCaptcha() {}
-
-  /**
-   * 登录
-   */
+  /** 登录 */
   async function handleLogin(formInstance: FormInstance | undefined) {
     try {
       if (!formInstance) return
       await formInstance.validate()
+      console.log(loginForm.value)
+      await userStore.login(loginForm.value)
       await router.replace(redirect)
     } catch (error: any) {
       console.log(`登录失败`, error.message || error)
     }
   }
+
+  /** 获取登录验证码 */
+  async function getCaptcha() {}
 
   return { loading, loginForm, loginRules, captchaURL, getCaptcha, handleLogin }
 }

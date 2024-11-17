@@ -1,7 +1,9 @@
+import { setAccessToken } from '@/utils/cache'
 import type { RouteRecordRaw } from 'vue-router'
 import staticRoutes from '@/database/static-routes.json'
-import { filterVisibleRoutes, generateFlattenRoutes, generateRoutes } from '@/router/router.helper'
+import { LoginService } from '@/api/system/login.service'
 import { STATIC_ROUTE_LIST } from '@/router/modules/static.route'
+import { filterVisibleRoutes, generateFlattenRoutes, generateRoutes } from '@/router/router.helper'
 
 export default defineStore('user', () => {
   /** 用户角色编码表 */
@@ -13,6 +15,12 @@ export default defineStore('user', () => {
   /** 一级扁平化路由表 用于动态路由添加 */
   const flattenRouteList = shallowRef<RouteRecordRaw[]>([])
 
+  /** 登录 */
+  async function login(loginForm: LoginFormDto) {
+    const data = await LoginService.login(loginForm)
+    setAccessToken(data.accessToken)
+  }
+
   /** 请求获取个人权限数据 */
   function getInfo() {
     roles.value = ['admin']
@@ -22,5 +30,5 @@ export default defineStore('user', () => {
     flattenRouteList.value = generateFlattenRoutes(staticRoutes)
   }
 
-  return { roles, permissions, routeList, flattenRouteList, getInfo }
+  return { roles, permissions, routeList, flattenRouteList, login, getInfo }
 })

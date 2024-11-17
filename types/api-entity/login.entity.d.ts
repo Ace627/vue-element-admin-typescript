@@ -8,3 +8,7 @@ interface LoginFormDto {
   /** 记住密码 */
   rememberMe: boolean
 }
+
+interface LoginResult {
+  accessToken: string
+}
