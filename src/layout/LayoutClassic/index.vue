@@ -81,6 +81,7 @@ function handleClickOutside() {
   background-color: var(--ap-sidebar-bg-color);
   transition: width var(--el-transition-duration);
   overflow: hidden;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
 }
 
 .el-menu {
