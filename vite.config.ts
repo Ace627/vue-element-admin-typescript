@@ -29,7 +29,7 @@ export default defineConfig(({ command, mode }) => {
       /** 自动跟踪依赖并导入所需的内容，避免手动导入的繁琐步骤 */
       AutoImport({
         resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
-        imports: ['vue', 'pinia', 'vue-router', '@vueuse/core'], // 自动导入 vue、vue-router、Pinia 相关函数
+        imports: ['vue', 'pinia', 'vue-router'], // 自动导入 vue、vue-router、Pinia 相关函数
         dts: 'types/auto-generate/auto-import.d.ts',
         dirs: ['src/store/modules', 'src/hooks'], // 配置其它需要导入的文件目录
       }),
