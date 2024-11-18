@@ -1,8 +1,10 @@
+import { getSidebarStatus, setSidebarStatus } from '@/utils/cache'
+
 export default defineStore('app', () => {
   /** 是否移除侧栏和主容器的过渡效果 */
   const withoutAnimation = ref<boolean>(false)
   /** 是否折叠菜单 */
-  const isCollapse = ref<boolean>(false)
+  const isCollapse = ref<boolean>(getSidebarStatus())
   /** 设备类型 */
   const device = ref<DeviceType>('desktop')
   const isMobile = computed(() => device.value === 'mobile')
@@ -12,11 +14,13 @@ export default defineStore('app', () => {
   function toggleSidebar(): void {
     withoutAnimation.value = false
     isCollapse.value = !isCollapse.value
+    setSidebarStatus(isCollapse.value)
   }
 
   /** 关闭侧边栏（主要用于移动端状态下） */
   function closeSidebar(hasAnimation: boolean = false): void {
     isCollapse.value = true
+    setSidebarStatus(isCollapse.value)
     withoutAnimation.value = hasAnimation
   }
 
