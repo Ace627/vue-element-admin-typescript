@@ -32,9 +32,10 @@ const list = ref([
       { title: 'Axios 中文文档', link: 'https://www.axios-http.cn' },
       { title: 'DayJS 中文网', link: 'https://dayjs.fenxianglu.cn' },
       { title: 'Canvas 中文文档', link: 'https://www.canvasapi.cn' },
-      { title: 'Apache ECharts', link: 'https://echarts.apache.org/zh/index.html' },
       { title: 'NodeJS 平滑文档', link: 'https://doc.cherrychat.org/node' },
       { title: 'Pnpm 中文文档', link: 'https://www.pnpm.cn' },
+      { title: 'Apache ECharts', link: 'https://echarts.apache.org/zh/index.html' },
+      { title: 'WangEditorNext', link: 'https://cycleccc.github.io/docs' },
     ],
   },
 ])
