@@ -17,4 +17,12 @@ defineOptions({ name: 'AppMain' })
 const settingStore = useSettingStore()
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+:deep(.el-scrollbar__wrap--hidden-default) {
+  display: flex;
+  flex-direction: column;
+  .el-scrollbar__view {
+    flex: 1;
+  }
+}
+</style>

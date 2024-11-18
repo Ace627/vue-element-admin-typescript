@@ -1,7 +1,8 @@
 <template>
   <div class="app-content">
-    首页
-    <div v-for="(item, index) in 99" class="bg-pink mb-16px py-10px b-rd-10px" :key="index">{{ item }}</div>
+    <AutoWrapList>
+      <div v-for="(item, index) in 521" class="bg-pink h-150px b-rd-10px text-64px flex-center" :key="index">{{ item }}</div>
+    </AutoWrapList>
   </div>
 </template>
 

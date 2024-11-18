@@ -126,13 +126,12 @@ function handleClickOutside() {
   width: calc(100% - var(--ap-sidebar-width));
   transition: width var(--el-transition-duration);
 }
-.fixed-header + .app-main {
-  height: calc(100vh - var(--ap-header-height));
-  margin-top: var(--ap-header-height);
-}
+
 .app-main {
   position: relative;
   width: 100%;
+  height: calc(100vh - var(--ap-header-height));
+  margin-top: var(--ap-header-height);
   overflow: hidden;
 }
 
