@@ -58,7 +58,4 @@ function handleMenuRouter(record: RouteRecordRaw) {
   color: var(--ap-sidebar-active-text-color);
   background-color: var(--ap-sidebar-active-bg-color);
 }
-// .el-menu--collapse .el-sub-menu.is-active {
-//   background-color: var(--ap-sidebar-active-bg-color);
-// }
 </style>

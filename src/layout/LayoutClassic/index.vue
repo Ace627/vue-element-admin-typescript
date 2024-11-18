@@ -97,8 +97,12 @@ function handleClickOutside() {
   border: none;
 }
 
-/* 解决折叠状态下菜单图标不居中的问题 */
 :deep(.el-menu--collapse) {
+  /* 折叠时 子级菜单激活 父级菜单也高亮 */
+  .el-sub-menu.is-active .el-sub-menu__title {
+    background-color: var(--ap-sidebar-active-bg-color);
+  }
+  /* 解决折叠状态下菜单图标不居中的问题 */
   .el-tooltip__trigger {
     display: flex;
     justify-content: center;
