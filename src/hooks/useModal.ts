@@ -81,7 +81,7 @@ function showLoading(content: string = '正在加载...') {
 }
 
 /** 关闭遮罩层 */
-function closeLoading() {
+function hideLoading() {
   loadingInstance.close()
 }
 
@@ -101,5 +101,5 @@ export default () => ({
   confirm,
   prompt,
   showLoading,
-  closeLoading,
+  hideLoading
 })

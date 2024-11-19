@@ -58,6 +58,16 @@
     "component": "example/wraplist/index",
     "type": "C",
     "title": "自适应换行",
+    "icon": "List",
+    "visible": 1
+  },
+  {
+    "id": "3b63214f-cc7c-4d84-99ee-ac170b74536e",
+    "parentId": "1c69321d-89e0-4217-a5ed-cf26aaa2b7e3",
+    "path": "/example/icons",
+    "component": "example/icons/index",
+    "type": "C",
+    "title": "系统附带图标",
     "icon": "Tool",
     "visible": 1
   },
@@ -69,7 +79,7 @@
     "component": null,
     "type": "M",
     "title": "外部链接",
-    "icon": "Tool",
+    "icon": "External",
     "visible": 1
   },
   {
@@ -79,7 +89,7 @@
     "component": null,
     "type": "C",
     "title": "油小猴",
-    "icon": "Tool",
+    "icon": "Link",
     "visible": 1
   },
   {
@@ -89,7 +99,7 @@
     "component": null,
     "type": "C",
     "title": "ChatGPT",
-    "icon": "Tool",
+    "icon": "Link",
     "visible": 1
   },
   {
@@ -99,7 +109,7 @@
     "component": null,
     "type": "C",
     "title": "UUID在线生成",
-    "icon": "Tool",
+    "icon": "Link",
     "visible": 1
   },
   {
@@ -109,7 +119,7 @@
     "component": null,
     "type": "C",
     "title": "阿里字体图标",
-    "icon": "Tool",
+    "icon": "Link",
     "visible": 1
   },
 
@@ -120,7 +130,7 @@
     "component": "about/index",
     "type": "C",
     "title": "关于",
-    "icon": "Tool",
+    "icon": "About",
     "visible": 1
   }
 ]
