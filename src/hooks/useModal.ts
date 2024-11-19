@@ -76,7 +76,7 @@ let loadingInstance: ReturnType<typeof ElLoading.service>
 
 /** 打开遮罩层 */
 function showLoading(content: string = '正在加载...') {
-  const background = useCssVar('--el-overlay-color-light').value ?? 'rgba(0,0,0,0.7)'
+  const background = 'rgba(0,0,0,0.7)'
   loadingInstance = ElLoading.service({ lock: true, text: content, background })
 }
 
