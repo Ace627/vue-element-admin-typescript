@@ -42,6 +42,27 @@
   },
 
   {
+    "id": "1c69321d-89e0-4217-a5ed-cf26aaa2b7e3",
+    "parentId": "0",
+    "path": "/example",
+    "component": null,
+    "type": "M",
+    "title": "综合案例",
+    "icon": "Tool",
+    "visible": 1
+  },
+  {
+    "id": "79a8ddf1-aecb-46f0-ae99-5840d6ccda81",
+    "parentId": "1c69321d-89e0-4217-a5ed-cf26aaa2b7e3",
+    "path": "/example/wraplist",
+    "component": "example/wraplist/index",
+    "type": "C",
+    "title": "自适应换行",
+    "icon": "Tool",
+    "visible": 1
+  },
+
+  {
     "id": "9363b9ad-7d34-446c-864b-e746bd67c45e",
     "parentId": "0",
     "path": "/link",

@@ -1,6 +1,7 @@
 import { upperFirst } from 'lodash-es'
 import { LAYOUT, NAME_WHITE_LIST, PATH_WHITE_LIST } from './router.constant'
 import type { RouteMeta, RouteRecordRaw, RouteLocationNormalized } from 'vue-router'
+import { isExternal } from '@/utils/validate'
 
 /**
  * 递归函数用于生成路由配置，登录的时候也需要调用一次
@@ -36,7 +37,7 @@ export function generateFlattenRoutes(menus: any[]) {
     const route: any = {}
     route.path = item.path
     route.name = upperFirst(item.path.replaceAll('/', ''))
-    route.component = item.component ? views[`/src/views/${item.component}.vue`] : LAYOUT
+    route.component = item.component ? views[`/src/views/${item.component}.vue`] : null
     // 处理路由元信息
     route.meta = generateRouteMeta(item)
     routeList.push(route)
