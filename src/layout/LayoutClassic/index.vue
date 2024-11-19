@@ -48,6 +48,9 @@ function handleClickOutside() {
 
 <style lang="scss" scoped>
 .layout-classic {
+  --sidebar-index: 100;
+  --drawer-bg-index: calc(var(--sidebar-index) - 1);
+  --fixed-header-index: calc(var(--sidebar-index) - 2);
   position: relative;
   width: 100%;
   height: 100%;
@@ -64,7 +67,7 @@ function handleClickOutside() {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 9;
+  z-index: var(--drawer-bg-index);
   width: 100%;
   height: 100%;
   background-color: var(--el-overlay-color-lighter);
@@ -74,7 +77,7 @@ function handleClickOutside() {
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: var(--sidebar-index);
   width: var(--ap-sidebar-width);
   height: 100%;
   color: var(--ap-sidebar-text-color);
@@ -122,7 +125,7 @@ function handleClickOutside() {
 .fixed-header {
   position: fixed;
   top: 0;
-  z-index: 8;
+  z-index: var(--fixed-header-index);
   width: calc(100% - var(--ap-sidebar-width));
   transition: width var(--el-transition-duration);
 }

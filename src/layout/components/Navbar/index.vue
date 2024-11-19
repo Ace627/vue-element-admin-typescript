@@ -11,7 +11,9 @@
     </div>
 
     <!-- 修改密码对话框 -->
-    <UpdatePassword ref="updatePasswordRef" />
+    <Teleport to="body">
+      <UpdatePassword ref="updatePasswordRef" />
+    </Teleport>
   </div>
 </template>
 
