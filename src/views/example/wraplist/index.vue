@@ -1,5 +1,5 @@
 <template>
-  <div class="app-content">
+  <div class="app-content flex flex-col h-full">
     <el-form>
       <el-row>
         <el-col :lg="5">
@@ -25,11 +25,13 @@
       </el-row>
     </el-form>
 
-    <AutoWrapList :minWidth="designWidth" :gap class="overflow-y-auto flex-1">
-      <div class="wrap-item flex-center" v-for="(item, index) in count" :key="index" :style="styles">
-        <span>{{ item }}</span>
-      </div>
-    </AutoWrapList>
+    <el-scrollbar>
+      <AutoWrapList :minWidth="designWidth" :gap>
+        <div class="wrap-item flex-center" v-for="(item, index) in count" :key="index" :style="styles">
+          <span>{{ item }}</span>
+        </div>
+      </AutoWrapList>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -50,11 +52,20 @@ const styles = computed(() => ({ '--wrap-item-height': `${designHeight.value}px`
 
 <style lang="scss" scoped>
 .wrap-item {
+  cursor: pointer;
   height: var(--wrap-item-height, 100px);
-  font-size: 32px;
+  font-size: 64px;
+  font-weight: bold;
   border-radius: 8px;
   border: var(--el-border);
-  background-color: #fff;
-  box-shadow: var(--el-box-shadow);
+  color: var(--el-color-primary);
+  background-color: var(--el-color-primary-light-8);
+  transition: all var(--el-transition-duration);
+  &:hover {
+    font-size: 128px;
+    color: var(--el-color-white);
+    border-color: var(--el-color-primary);
+    background-color: var(--el-color-primary);
+  }
 }
 </style>

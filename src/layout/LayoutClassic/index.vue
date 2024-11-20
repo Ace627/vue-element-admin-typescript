@@ -38,7 +38,7 @@ const classes = computed(() => [
   { 'has-logo': settingStore.showLogo },
   { 'open-sidebar': !appStore.isCollapse },
   { 'hide-sidebar': appStore.isCollapse },
-  { withoutAnimation: appStore.withoutAnimation },
+  { withoutAnimation: appStore.withoutAnimation }
 ])
 
 function handleClickOutside() {
@@ -135,7 +135,7 @@ function handleClickOutside() {
   width: 100%;
   height: calc(100vh - var(--ap-header-height));
   margin-top: var(--ap-header-height);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* 桌面模式 侧栏折叠 */
