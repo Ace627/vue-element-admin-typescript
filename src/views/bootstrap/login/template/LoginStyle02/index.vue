@@ -1,11 +1,11 @@
 <template>
-  <div class="login-container flex-center">
+  <div class="login-container flex-center" :class="[appStore.device]">
     <div class="title-container tracking-widest">
       <h3 class="title-container__title">神圣知识宝库智能管理与维护辅助应用系统</h3>
       <div class="title-container__desc">智能管理知识 维护高效便捷</div>
     </div>
 
-    <img src="./1732099400041.png" draggable="false" class="absolute left-150px top-300px w-420px h-425px" alt="" />
+    <img src="./1732099400041.png" draggable="false" class="logo-img absolute left-160px top-224px w-420px h-425px" alt="" />
 
     <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="login-form__title">欢迎登录</h3>
@@ -49,40 +49,42 @@
 defineOptions({ name: 'LoginStyle01' })
 import type { FormInstance } from 'element-plus'
 
-/** 获取登录表单实例 */
-const loginFormRef = ref<FormInstance>()
+const appStore = useAppStore()
 /** 解构登录逻辑及其数据 */
 const { loading, loginForm, loginRules, captchaURL, getCaptcha, handleLogin } = useLogin()
+
+/** 获取登录表单实例 */
+const loginFormRef = ref<FormInstance>()
 </script>
 
 <style lang="scss" scoped>
 .title-container {
   position: absolute;
-  left: 70px;
-  top: 83px;
+  left: 64px;
+  top: 64px;
   &__title {
     font-size: 32px;
     font-weight: 800;
-    color: #2c3662;
+    color: var(--el-text-color-primary);
   }
   &__desc {
     margin-top: 10px;
     font-size: 18px;
-    color: #868a9d;
+    color: var(--el-text-color-placeholder);
   }
 }
 
 .login-form {
   position: absolute;
-  right: 220px;
-  top: 280px;
+  right: 160px;
+  top: 320px;
   width: 480px;
   padding: 32px 42px;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0px 6px 50px 0px #0000001a;
   &__title {
-    color: #262626;
+    color: var(--el-text-color-primary);
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 4px;
@@ -115,6 +117,22 @@ const { loading, loginForm, loginRules, captchaURL, getCaptcha, handleLogin } = 
     color: var(--el-color-white);
     font-size: var(--el-font-size-extra-small);
     letter-spacing: 1px;
+  }
+}
+
+.login-container.mobile {
+  .title-container {
+    left: 16px;
+    right: 16px;
+    line-height: 1.25;
+    text-align: center;
+  }
+  .logo-img {
+    display: none;
+  }
+  .login-form {
+    position: static;
+    width: calc(100% - 16px);
   }
 }
 </style>

@@ -39,7 +39,7 @@
 defineOptions({ name: 'WrapList' })
 
 /** 设计稿宽度 */
-const designWidth = ref<number>(375)
+const designWidth = ref<number>(150)
 /** 设计稿高度 */
 const designHeight = ref<number>(150)
 /** 列表项间距 */
@@ -52,9 +52,10 @@ const styles = computed(() => ({ '--wrap-item-height': `${designHeight.value}px`
 
 <style lang="scss" scoped>
 .wrap-item {
+  --item-font-size: 64px;
   cursor: pointer;
   height: var(--wrap-item-height, 100px);
-  font-size: 64px;
+  font-size: var(--item-font-size);
   font-weight: bold;
   border-radius: 8px;
   border: var(--el-border);
@@ -62,7 +63,7 @@ const styles = computed(() => ({ '--wrap-item-height': `${designHeight.value}px`
   background-color: var(--el-color-primary-light-8);
   transition: all var(--el-transition-duration);
   &:hover {
-    font-size: 128px;
+    font-size: calc(var(--item-font-size) * 1.5);
     color: var(--el-color-white);
     border-color: var(--el-color-primary);
     background-color: var(--el-color-primary);
