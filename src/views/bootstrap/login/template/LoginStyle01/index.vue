@@ -4,18 +4,18 @@
       <h3 class="title">后台管理系统</h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" placeholder="账号">
-          <template #prefix> <IconFont name="User" /> </template>
+          <template #prefix> <Icon name="el-icon-UserFilled" /></template>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
         <el-input type="password" v-model="loginForm.password" show-password placeholder="密码">
-          <template #prefix> <IconFont name="Lock" /> </template>
+          <template #prefix> <Icon name="el-icon-Lock" /> </template>
         </el-input>
       </el-form-item>
       <el-form-item prop="captcha">
         <div class="flex items-center w-full">
           <el-input v-model="loginForm.captcha" placeholder="请输入验证码">
-            <template #prefix> <IconFont name="Guard" /> </template>
+            <template #prefix> <Icon name="iconfont-Guard" /> </template>
           </el-input>
           <img :src="captchaURL" alt="captcha" @click="getCaptcha" class="cursor-pointer ml-10px" draggable="false" />
         </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({ name: 'LoginRuoYi' })
+defineOptions({ name: 'LoginStyle01' })
 import type { FormInstance } from 'element-plus'
 
 /** 获取登录表单实例 */
