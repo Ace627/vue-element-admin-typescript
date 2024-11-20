@@ -32,6 +32,7 @@ const isShowTitle = computed(() => !appStore.isCollapse)
   height: var(--ap-navbar-height);
   color: var(--ap-logo-text-color);
   background-color: var(--ap-logo-bg-color);
+  white-space: nowrap;
   overflow: hidden;
 }
 </style>

@@ -6,7 +6,7 @@
     "component": null,
     "type": "M",
     "title": "系统管理",
-    "icon": "Setting",
+    "icon": "el-icon-Menu",
     "visible": 1
   },
   {
@@ -16,7 +16,7 @@
     "component": "system/user/index",
     "type": "C",
     "title": "用户管理",
-    "icon": "User",
+    "icon": "iconfont-User",
     "visible": 1,
     "full": 0
   },
@@ -27,7 +27,7 @@
     "component": "system/role/index",
     "type": "C",
     "title": "角色管理",
-    "icon": "Role",
+    "icon": "iconfont-Role",
     "visible": 1
   },
   {
@@ -37,7 +37,7 @@
     "component": "system/menu/index",
     "type": "C",
     "title": "菜单管理",
-    "icon": "List",
+    "icon": "el-icon-Menu",
     "visible": 1
   },
 
@@ -48,7 +48,7 @@
     "component": null,
     "type": "M",
     "title": "综合案例",
-    "icon": "Tool",
+    "icon": "iconfont-Tool",
     "visible": 1
   },
   {
@@ -58,7 +58,7 @@
     "component": "example/wraplist/index",
     "type": "C",
     "title": "自适应换行",
-    "icon": "List",
+    "icon": "iconfont-List",
     "visible": 1
   },
   {
@@ -68,7 +68,7 @@
     "component": "example/icons/index",
     "type": "C",
     "title": "系统附带图标",
-    "icon": "Tool",
+    "icon": "iconfont-Tool",
     "visible": 1
   },
 
@@ -79,7 +79,7 @@
     "component": null,
     "type": "M",
     "title": "外部链接",
-    "icon": "External",
+    "icon": "iconfont-External",
     "visible": 1
   },
   {
@@ -89,7 +89,7 @@
     "component": null,
     "type": "C",
     "title": "油小猴",
-    "icon": "Link",
+    "icon": "el-icon-Link",
     "visible": 1
   },
   {
@@ -99,7 +99,7 @@
     "component": null,
     "type": "C",
     "title": "ChatGPT",
-    "icon": "Link",
+    "icon": "el-icon-Link",
     "visible": 1
   },
   {
@@ -109,7 +109,7 @@
     "component": null,
     "type": "C",
     "title": "UUID在线生成",
-    "icon": "Link",
+    "icon": "el-icon-Link",
     "visible": 1
   },
   {
@@ -119,7 +119,7 @@
     "component": null,
     "type": "C",
     "title": "阿里字体图标",
-    "icon": "Link",
+    "icon": "el-icon-Link",
     "visible": 1
   },
 
@@ -130,7 +130,7 @@
     "component": "about/index",
     "type": "C",
     "title": "关于",
-    "icon": "About",
+    "icon": "el-icon-WarningFilled",
     "visible": 1
   }
 ]

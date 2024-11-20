@@ -1,7 +1,7 @@
 <template>
   <div class="screenfull-container" @click="toggleFullScreen">
     <el-tooltip effect="dark" :content="tips" placement="bottom">
-      <IconFont :name="iconName" :size />
+      <Icon :name="iconName" :size />
     </el-tooltip>
   </div>
 </template>
@@ -18,12 +18,12 @@ const props = defineProps({
   /** 关闭全屏提示语 */
   exitTips: { type: String, default: '退出全屏' },
   /** 图标的大小，size x size */
-  size: { type: [String, Number], default: '1em' },
+  size: { type: [String, Number], default: '1em' }
 })
 
 const tips = ref<string>(props.openTips)
 const isFullscreen = ref<boolean>(false)
-const iconName = computed(() => (isFullscreen.value ? 'ExitFullScreen' : 'FullScreen'))
+const iconName = computed(() => (isFullscreen.value ? 'iconfont-ExitFullScreen' : 'iconfont-FullScreen'))
 
 function toggleFullScreen() {
   if (!screenfull.isEnabled) return useModal().msgWarning('您的浏览器暂不支持全屏效果')

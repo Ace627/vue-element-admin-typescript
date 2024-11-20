@@ -110,9 +110,6 @@ function handleClickOutside() {
     display: flex;
     justify-content: center;
     align-items: center;
-    .menu-icon {
-      margin-right: 0;
-    }
   }
 }
 

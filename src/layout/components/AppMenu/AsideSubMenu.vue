@@ -4,7 +4,7 @@
     <!-- 非叶子节点 -->
     <el-sub-menu v-if="item.children?.length || item.meta?.alwaysShow" :index="item.path">
       <template #title>
-        <IconFont class="menu-icon" :name="item.meta?.icon ?? 'Flag'" />
+        <Icon class="menu-icon" :name="item.meta?.icon" v-if="item.meta?.icon" />
         <span class="menu-title">{{ item.meta?.title }}</span>
       </template>
       <AsideSubMenu v-if="item.children?.length" :menuList="item.children" />
@@ -12,7 +12,7 @@
 
     <!-- 叶子节点[功能节点] -->
     <el-menu-item v-else :index="item.path" @click="handleMenuRouter(item)">
-      <IconFont class="menu-icon" :name="item.meta?.icon ?? 'Flag'" />
+      <Icon class="menu-icon" :name="item.meta?.icon" v-if="item.meta?.icon" />
       <template #title>
         <span class="menu-title">{{ item.meta?.title }} </span>
       </template>
@@ -26,7 +26,7 @@ import { RouteRecordRaw } from 'vue-router'
 import { isExternal } from '@/utils/validate'
 
 defineProps({
-  menuList: { type: Array as PropType<Array<RouteRecordRaw>>, required: true },
+  menuList: { type: Array as PropType<Array<RouteRecordRaw>>, required: true }
 })
 
 const router = useRouter()
@@ -37,10 +37,9 @@ function handleMenuRouter(record: RouteRecordRaw) {
 </script>
 
 <style lang="scss" scoped>
-.menu-icon {
+.el-icon.menu-icon {
   font-size: var(--ap-sidebar-icon-size);
   font-weight: bold;
-  margin-right: 6px;
 }
 
 /* 再次配置前景背景色 是为了侧栏的折叠菜单样式不生效的问题 */

@@ -16,7 +16,7 @@
       </el-table-column>
       <el-table-column label="菜单图标" min-width="100px">
         <template #default="{ row }">
-          <IconFont :name="row.icon" />
+          <Icon :name="row.icon" />
         </template>
       </el-table-column>
       <el-table-column label="路由地址" prop="path" min-width="180px"></el-table-column>

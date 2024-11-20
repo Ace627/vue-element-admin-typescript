@@ -6,12 +6,12 @@
 
     <template #dropdown>
       <el-dropdown-item @click="emits('updatePassword')">
-        <IconFont name="Lock" />
+        <Icon name="el-icon-Lock" />
         <span>修改密码</span>
       </el-dropdown-item>
 
       <el-dropdown-item @click="handleLogout">
-        <IconFont name="SwitchButton" />
+        <Icon name="el-icon-SwitchButton" />
         <span>退出登录</span>
       </el-dropdown-item>
     </template>

@@ -16,7 +16,7 @@ export const STATIC_ROUTE_LIST: Array<RouteRecordRaw> = [
   {
     path: HOME_PAGE_URL,
     component: () => import('@/views/dashboard/index.vue'),
-    meta: { title: '主控台', icon: 'Home', full: false, affix: true }
+    meta: { title: '主控台', icon: 'iconfont-Home', full: false, affix: true }
   },
 
   // 系统登录页
