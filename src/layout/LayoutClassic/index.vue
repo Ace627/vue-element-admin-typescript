@@ -5,7 +5,7 @@
 
     <div class="sidebar-container">
       <AppLogo v-if="settingStore.showLogo" />
-      <el-menu :collapse="appStore.isCollapse" :collapseTransition="false" uniqueOpened :defaultActive>
+      <el-menu :collapse="appStore.isCollapse" :collapseTransition="false" uniqueOpened :defaultActive popper-class="layout-classic-sidebar-popper">
         <AsideSubMenu :menuList />
       </el-menu>
     </div>
@@ -46,6 +46,11 @@ function handleClickOutside() {
 }
 </script>
 
+<style lang="scss">
+.layout-classic-sidebar-popper {
+  --el-menu-bg-color: var(--ap-sidebar-bg-color);
+}
+</style>
 <style lang="scss" scoped>
 .layout-classic {
   --sidebar-index: 100;
