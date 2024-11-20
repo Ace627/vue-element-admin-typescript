@@ -1,5 +1,9 @@
 <template>
-  <div>NotFound</div>
+  <div>
+    NotFound
+
+    <el-button @click="$router.replace('/')" type="primary">返回首页</el-button>
+  </div>
 </template>
 
 <script setup lang="ts">

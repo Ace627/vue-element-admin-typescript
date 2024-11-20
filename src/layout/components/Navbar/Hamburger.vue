@@ -1,7 +1,6 @@
 <template>
   <div @click="emits('toggleClick')">
-    <Icon name="el-icon-Expand" :size v-if="appStore.isCollapse" />
-    <Icon name="el-icon-Fold" :size v-else />
+    <Icon :name :size />
   </div>
 </template>
 
@@ -10,8 +9,9 @@ defineOptions({ name: 'Hamburger' })
 
 const emits = defineEmits(['toggleClick'])
 
-const size = ref(28)
 const appStore = useAppStore()
+const size = ref(28)
+const name = computed(() => (appStore.isCollapse ? `el-icon-Expand` : `el-icon-Fold`))
 </script>
 
 <style lang="scss" scoped></style>
