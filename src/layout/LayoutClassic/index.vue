@@ -49,6 +49,8 @@ function handleClickOutside() {
 <style lang="scss">
 .layout-classic-sidebar-popper {
   --el-menu-bg-color: var(--ap-sidebar-bg-color);
+  /* 修复折叠弹出子菜单存在白色边框的问题 */
+  border: none !important;
 }
 </style>
 <style lang="scss" scoped>
