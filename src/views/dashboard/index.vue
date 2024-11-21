@@ -1,9 +1,5 @@
 <template>
-  <div class="app-content">
-    <AutoWrapList>
-      <div v-for="(item, index) in 521" class="bg-pink h-150px b-rd-10px text-64px flex-center" :key="index">{{ item }}</div>
-    </AutoWrapList>
-  </div>
+  <div class="app-content"></div>
 </template>
 
 <script setup lang="ts">

@@ -29,15 +29,15 @@ export default defineConfig(({ command, mode }) => {
       /** 自动跟踪依赖并导入所需的内容，避免手动导入的繁琐步骤 */
       AutoImport({
         resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
-        imports: ['vue', 'pinia', 'vue-router'], // 自动导入 vue、vue-router、Pinia 相关函数
+        imports: ['vue', 'pinia', 'vue-router', '@vueuse/core'], // 自动导入 vue、vue-router、Pinia 相关函数
         dts: 'types/auto-generate/auto-import.d.ts',
-        dirs: ['src/store/modules', 'src/hooks'], // 配置其它需要导入的文件目录
+        dirs: ['src/store/modules', 'src/hooks'] // 配置其它需要导入的文件目录
       }),
       /** 提供组件自动按需导入及类型声明功能 */
       AutoComponents({
         resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
         dts: 'types/auto-generate/auto-components.d.ts',
-        dirs: [], // 配置其它需要导入的文件目录 'src/components'
+        dirs: [] // 配置其它需要导入的文件目录 'src/components'
       }),
       /** 针对 index.html，提供压缩和基于 ejs 模板功能，亦可对其注入动态数据 */
       createHtmlPlugin({
@@ -47,9 +47,9 @@ export default defineConfig(({ command, mode }) => {
         minify: command === 'build',
         // 需要注入 index.html ejs 模版的数据
         inject: {
-          data: { VITE_APP_TITLE: runtimeConfig.VITE_APP_TITLE, buildTime: dayjs().format(`YYYY-MM-DD HH:mm:ss`) },
-        },
-      }),
+          data: { VITE_APP_TITLE: runtimeConfig.VITE_APP_TITLE, buildTime: dayjs().format(`YYYY-MM-DD HH:mm:ss`) }
+        }
+      })
     ],
 
     resolve: {
@@ -57,8 +57,8 @@ export default defineConfig(({ command, mode }) => {
         /** 设置 `@` 指向 `src` 目录 */
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         /** 设置 `#` 指向 `types` 目录 */
-        '#': fileURLToPath(new URL('./types', import.meta.url)),
-      },
+        '#': fileURLToPath(new URL('./types', import.meta.url))
+      }
     },
 
     css: {
@@ -77,9 +77,9 @@ export default defineConfig(({ command, mode }) => {
           // 如果您的终端提示 legacy JS API Deprecation Warning, 您可以配置以下代码在 vite.config.ts
           // https://element-plus.org/zh-CN/guide/installation.html#sass
           api: 'modern-compiler',
-          additionalData: `@use "@/styles/element-plus/element-theme.scss" as *;`,
-        },
-      },
+          additionalData: `@use "@/styles/element-plus/element-theme.scss" as *;`
+        }
+      }
     },
 
     server: {
@@ -98,9 +98,9 @@ export default defineConfig(({ command, mode }) => {
         [runtimeConfig.VITE_BASE_API]: {
           target: runtimeConfig.VITE_BASE_URL,
           changeOrigin: true,
-          rewrite: (path) => path.replace('/dev-api', ''),
-        },
-      },
+          rewrite: (path) => path.replace('/dev-api', '')
+        }
+      }
     },
 
     build: {
@@ -160,9 +160,9 @@ export default defineConfig(({ command, mode }) => {
             // 这个 return 的值就是打包的名称
             // 可以利用浏览器的缓存机制 减少请求次数
             if (chunk.includes('node_modules')) return 'vendor'
-          },
-        },
-      },
+          }
+        }
+      }
     },
 
     esbuild: {
@@ -175,7 +175,7 @@ export default defineConfig(({ command, mode }) => {
        * 打包后是否移除所有的注释
        * http://esbuild.docschina.org/api/#legal-comments
        */
-      legalComments: runtimeConfig.VITE_CLEAR_COMMENT === 'true' ? 'none' : 'inline',
-    },
+      legalComments: runtimeConfig.VITE_CLEAR_COMMENT === 'true' ? 'none' : 'inline'
+    }
   }
 })
