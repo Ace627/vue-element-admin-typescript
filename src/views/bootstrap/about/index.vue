@@ -14,11 +14,12 @@ defineOptions({ name: 'About' })
 
 const list = ref([
   {
-    title: 'AI 工具',
+    title: '开发工具',
     children: [
       { title: 'ChatGPT', link: 'https://chatgpt.com' },
       { title: '文心一言', link: 'https://yiyan.baidu.com' },
-    ],
+      { title: '按钮生成器', link: 'https://markodenic.com/tools/buttons-generator' }
+    ]
   },
   {
     title: '开发文档',
@@ -26,6 +27,7 @@ const list = ref([
       { title: 'Vue3 中文文档', link: 'https://cn.vuejs.org/guide/introduction' },
       { title: 'VueRouter 中文网', link: 'https://router.vuejs.org/zh/guide' },
       { title: 'Element Plus', link: 'https://element-plus.org/zh-CN/component/button.html' },
+      { title: 'Ant Design Vue', link: 'https://www.antdv.com/components/button-cn' },
       { title: 'UnoCSS 中文网', link: 'https://unocss.nodejs.cn' },
       { title: 'VueUse 中文文档', link: 'https://vueuse.pages.dev' },
       { title: 'Pinia 中文文档', link: 'https://pinia.vuejs.org/zh' },
@@ -33,11 +35,14 @@ const list = ref([
       { title: 'DayJS 中文网', link: 'https://dayjs.fenxianglu.cn' },
       { title: 'Canvas 中文文档', link: 'https://www.canvasapi.cn' },
       { title: 'NodeJS 平滑文档', link: 'https://doc.cherrychat.org/node' },
+      { title: 'Electron 中文网', link: 'https://electron.nodejs.cn' },
       { title: 'Pnpm 中文文档', link: 'https://www.pnpm.cn' },
+      { title: 'Vite 中文文档', link: 'https://cn.vitejs.dev/guide' },
       { title: 'Apache ECharts', link: 'https://echarts.apache.org/zh/index.html' },
-      { title: 'WangEditorNext', link: 'https://cycleccc.github.io/docs' },
-    ],
-  },
+      { title: 'Animate.css', link: 'https://animate.style' },
+      { title: 'Lodash 中文文档', link: 'https://www.lodashjs.com' }
+    ]
+  }
 ])
 </script>
 

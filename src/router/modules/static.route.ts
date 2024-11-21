@@ -15,7 +15,7 @@ export const STATIC_ROUTE_LIST: Array<RouteRecordRaw> = [
   {
     path: HOME_PAGE_URL, // 确保显示为一级菜单
     component: () => import('@/views/dashboard/index.vue'),
-    meta: { title: '主控台', icon: 'iconfont-Home', full: false, affix: true }
+    meta: { title: '主控台', icon: 'el-icon-HomeFilled', full: false, affix: true }
   },
 
   {

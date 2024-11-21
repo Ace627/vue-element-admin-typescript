@@ -6,7 +6,7 @@
     "component": null,
     "type": "M",
     "title": "系统管理",
-    "icon": "el-icon-Menu",
+    "icon": "el-icon-Setting",
     "visible": 1
   },
   {
@@ -16,7 +16,7 @@
     "component": "system/user/index",
     "type": "C",
     "title": "用户管理",
-    "icon": "iconfont-User",
+    "icon": "el-icon-UserFilled",
     "visible": 1,
     "full": 0
   },
@@ -27,7 +27,7 @@
     "component": "system/role/index",
     "type": "C",
     "title": "角色管理",
-    "icon": "iconfont-Role",
+    "icon": "el-icon-Avatar",
     "visible": 1
   },
   {
@@ -79,7 +79,7 @@
     "component": null,
     "type": "M",
     "title": "外部链接",
-    "icon": "iconfont-External",
+    "icon": "el-icon-Link",
     "visible": 1
   },
   {
