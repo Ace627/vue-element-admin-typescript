@@ -8,11 +8,10 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'Screenfull' })
-import screenfull from 'screenfull'
 
 const props = defineProps({
   /** 全屏的元素，默认是 html */
-  element: { type: String, default: 'html' },
+  element: { type: HTMLElement, default: document.documentElement },
   /** 打开全屏提示语 */
   openTips: { type: String, default: '全屏' },
   /** 关闭全屏提示语 */
@@ -21,24 +20,15 @@ const props = defineProps({
   size: { type: [String, Number], default: '1em' }
 })
 
+const { isFullscreen, isSupported, toggle } = useFullscreen(props.element)
+
 const tips = ref<string>(props.openTips)
-const isFullscreen = ref<boolean>(false)
 const iconName = computed(() => (isFullscreen.value ? 'iconfont-ExitFullScreen' : 'iconfont-FullScreen'))
 
 function toggleFullScreen() {
-  if (!screenfull.isEnabled) return useModal().msgWarning('您的浏览器暂不支持全屏效果')
-  screenfull.toggle(document.querySelector(props.element) || undefined)
+  if (!isSupported) return useModal().msgWarning('您的浏览器暂不支持全屏效果')
+  toggle()
 }
-function change() {
-  isFullscreen.value = screenfull.isFullscreen
-  tips.value = screenfull.isFullscreen ? props.exitTips : props.openTips
-}
-
-screenfull.on('change', change)
-
-onUnmounted(() => {
-  if (screenfull.isEnabled) screenfull.off('change', change)
-})
 </script>
 
 <style scoped></style>
