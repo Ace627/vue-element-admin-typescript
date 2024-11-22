@@ -49,7 +49,7 @@ const { loading, loginForm, loginRules, captchaURL, getCaptcha, handleLogin } = 
 .login-container {
   position: relative;
   height: 100%;
-  background-image: url('@/assets/images/background/bg-image-01.jpg');
+  background-image: url('@/assets/images/background/bg-image-01.png');
   background-size: cover;
 
   .login-form {
