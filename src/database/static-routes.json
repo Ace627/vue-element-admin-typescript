@@ -71,6 +71,16 @@
     "icon": "iconfont-Tool",
     "visible": 1
   },
+  {
+    "id": "94415466-5ddc-45ae-b2c8-f973ef63785b",
+    "parentId": "1c69321d-89e0-4217-a5ed-cf26aaa2b7e3",
+    "path": "/example/md",
+    "component": "example/md/index",
+    "type": "C",
+    "title": "Markdown",
+    "icon": "iconfont-Tool",
+    "visible": 1
+  },
 
   {
     "id": "9363b9ad-7d34-446c-864b-e746bd67c45e",
