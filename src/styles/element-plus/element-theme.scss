@@ -3,16 +3,16 @@
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
     'primary': (
-      'base': #1677ff
+      'base': #1677ff,
     ),
     // 'danger': (
     //   'base': #d03050
-    // )
+    // ),,
   ),
 
   // Card
   $card:
     (
-      'padding': 16px
+      'padding': 16px,
     )
 );

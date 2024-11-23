@@ -1,5 +1,5 @@
 <template>
-  <div class="app-content">
+  <div class="app-content select-none">
     <AutoWrapList :min-width="160" :gap="16">
       <CalendarCard />
       <FpsCard />

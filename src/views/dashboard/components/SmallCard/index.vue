@@ -1,5 +1,5 @@
 <template>
-  <div class="small-card">
+  <div class="small-card shadow">
     <div class="small-card__header" v-if="title">{{ title }}</div>
     <div class="small-card__body">
       <slot></slot>

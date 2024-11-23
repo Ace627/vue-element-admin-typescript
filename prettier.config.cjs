@@ -13,8 +13,8 @@ module.exports = {
   singleQuote: true,
   /** 在所有代码语句的末尾添加分号 */
   semi: false,
-  /** 对象或者数组的最后一个元素后面不要加逗号 */
-  trailingComma: 'none',
+  /** 对象或者数组的最后一个元素后面要加逗号 */
+  trailingComma: 'all',
   /** 指定一个制表符等于的空格数 */
   tabWidth: 2,
   /** 使用制表符缩进，而不是空格缩进 */
