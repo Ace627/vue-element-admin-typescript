@@ -21,6 +21,7 @@ const list = ref([
   {
     title: '开发工具',
     children: [
+      { title: '代码小抄', link: 'https://www.codecopy.cn', icon: 'https://www.codecopy.cn/favicon.ico' },
       { title: 'ChatGPT', link: 'https://chatgpt.com', icon: 'https://cdn.oaistatic.com/assets/apple-touch-icon-mz9nytnj.webp' },
       { title: '文心一言', link: 'https://yiyan.baidu.com', icon: 'https://nlp-eb.cdn.bcebos.com/logo/favicon.ico' },
       { title: '按钮生成器', link: 'https://markodenic.com/tools/buttons-generator', icon: 'https://markodenic.com/wp-content/themes/blog/favicon/apple-touch-icon.png' },
